@@ -5,4 +5,4 @@ Implementar 4 mecàniques bàsiques:
   - Moviment -> Albert
   - Zones de curació -> Pere
   - Disparar -> Júlia
-  - Interacció després de disparar -> Ginard
+  - Interacció després de rebre un dispar -> Ginard
