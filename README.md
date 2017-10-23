@@ -1,15 +1,8 @@
-# Motors de jocs 1
+V. 0.1
 
-1 - Double king
+Implementar 4 mecàniques bàsiques: 
 
-2- Paintball asimètric
-
-3- Laberint hp
-
-4- Guerra elemental
-  - El mapa és laberíntic
-  - Hi ha mini boss
-    -Una sola persona no pot matar un boss, has de cooperar amb els teus enemics. 
-  - A mesura que vas pujant de nivell, pots desbloquejar els altres elements que has escollit
-  
-  
+  - Moviment -> Albert
+  - Zones de curació -> Pere
+  - Disparar -> Júlia
+  - Interacció després de disparar -> Ginard
