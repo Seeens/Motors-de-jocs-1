@@ -18,7 +18,7 @@ public class HealZone : MonoBehaviour {
     void Awake ()
     {
         player = GameObject.FindGameObjectWithTag("FPSController");
-        playerHealth = player.GetComponent <PlayerHealth> ();
+        playerHealth = player.GetComponent<PlayerHealth>();
     }
 
 	void OnTriggerEnter (Collider other)

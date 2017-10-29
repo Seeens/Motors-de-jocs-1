@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_ScreenFlicker : MonoBehaviour {
+public class UI_BlindScreen : MonoBehaviour {
 
     public float firstStart = 0f;
     public float firstlength = 0.8f;
@@ -20,7 +20,7 @@ public class UI_ScreenFlicker : MonoBehaviour {
 
     void FadeOpacity(float start, float end, float lenght) {
         if (image.color.a == start) {
-            for (float i = 0.0f; i < 1.0f; i+=Time.deltaTime*(1/lenght)) {
+            for (float i = 0.0f; i < 1.0f; i += Time.deltaTime * (1 / lenght)) {
                 image.color = new Color(baseImageColor.r, baseImageColor.g, baseImageColor.b, Mathf.Lerp(start, end, i));
             }
         }
@@ -33,11 +33,11 @@ public class UI_ScreenFlicker : MonoBehaviour {
     }
 
     public void Flicker() {
-        Debug.Log("Flickering");
+        Debug.Log("FlashBang!");
         Calculate();
     }
 
-    void Start () {
+    void Start() {
         image = GetComponent<RawImage>();
         baseImageColor = image.color;
     }

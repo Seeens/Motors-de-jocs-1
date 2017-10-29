@@ -222,8 +222,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\effectWrapper.cs" />
     <Compile Include="Assets\_Scripts\HealZone.cs" />
     <Compile Include="Assets\_Scripts\PlayerHealth.cs" />
+    <Compile Include="Assets\_Scripts\UI_BlindScreen.cs" />
     <Compile Include="Assets\_Scripts\UI_ScreenFlicker.cs" />
   </ItemGroup>
   <ItemGroup>
