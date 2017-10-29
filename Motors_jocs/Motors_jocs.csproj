@@ -222,9 +222,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\HealZone.cs" />
-    <Compile Include="Assets\Scripts\PlayerHealth.cs" />
-    <Compile Include="Assets\Scripts\UI_ScreenFlicker.cs" />
+    <Compile Include="Assets\_Scripts\HealZone.cs" />
+    <Compile Include="Assets\_Scripts\PlayerHealth.cs" />
+    <Compile Include="Assets\_Scripts\UI_ScreenFlicker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
