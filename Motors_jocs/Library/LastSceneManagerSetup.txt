@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/heal player when enter zone.unity
+- path: Assets/_Scenes/Game.unity
   isLoaded: 1
   isActive: 1
