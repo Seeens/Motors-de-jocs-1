@@ -8,7 +8,7 @@ V. 0.1
 
 Implementar 4 mecàniques bàsiques: 
 
-  - Moviment -> Albert
-  - Zones de curació -> Pere
-  - Disparar -> Júlia
-  - Interacció després de rebre un dispar -> Ginard
+  - GDD + so + ajudar Ginard -> Albert
+  - Boss -> Pere
+  - So i ajudar Pere -> Júlia
+  - Multijugador i màgies -> Ginard
