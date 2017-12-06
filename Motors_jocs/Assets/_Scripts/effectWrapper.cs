@@ -2,191 +2,251 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class effectWrapper : MonoBehaviour {
+namespace Spell.EffectWrapper
+{
+    public class EffectWrapper : MonoBehaviour
+    {
+        // Duration of the effect in seconds (float)
+        [HideInInspector] public float slowTimer = 3f;
+        [HideInInspector] public float frozenTimer = 3f;
+        [HideInInspector] public float stunTimer = 3f;
+        [HideInInspector] public float minorMetalTimer = 3f;
+        [HideInInspector] public float majorMetalTimer = 3f;
+        [HideInInspector] public float blindTimer = 3f;
+        [HideInInspector] public float dashTimer = 0.5f;
+        [HideInInspector] public float speedBoostTimer = 3f;
 
-    // Duration of the effect in seconds (float)
-    public float burnTimer = 3f;
-    public float slowTimer = 3f;
-    public float frozenTimer = 3f;
-    public float stunTimer = 3f;    
-    public float minorMetalTimer = 3f;    
-    public float majorMetalTimer = 3f;
-    public float blindTimer = 3f; 
-    public float speedBoostTimer = 3f;
+        // Boolean to keep track which effects are on
+        [HideInInspector] public bool burning = false;
+        [HideInInspector] public bool slowed = false;
+        [HideInInspector] public bool frozen = false;
+        [HideInInspector] public bool stunned = false;
+        [HideInInspector] public bool minorMetalProtection = false;
+        [HideInInspector] public bool majorMetalProtection = false;
+        [HideInInspector] public bool speedBoost = false;
+        [HideInInspector] public bool blinded = false;
+        [HideInInspector] public bool dashing = false;
 
-    // Boolean to keep track which effects are on
-    private bool burning = false;
-    private bool slowed = false;
-    private bool frozen = false;
-    private bool stunned = false;
-    private bool minorMetalProtection = false;
-    private bool majorMetalProtection = false;
-    private bool speedBoost = false;
-    private bool blinded = false;
+        // Delta timers to keep track of the elapsed time
+        [HideInInspector] public float burnDelta;
+        [HideInInspector] public float slowDelta = 0f;
+        [HideInInspector] public float frozenDelta = 0f;
+        [HideInInspector] public float stunDelta = 0f;
+        [HideInInspector] public float minorMetalDelta = 0f;
+        [HideInInspector] public float majorMetalDelta = 0f;
+        [HideInInspector] public float blindDelta = 0f;
+        //[HideInInspector] private float dashDelta = 0f;
+        [HideInInspector] public float speedBoostDelta = 0f;
 
-    // Delta timers to keep track of the elapsed time 
-    private float burnDelta = 0f;
-    private float slowDelta = 0f;
-    private float frozenDelta = 0f;
-    private float stunDelta = 0f;
-    private float minorMetalDelta = 0f;
-    private float majorMetalDelta = 0f;
-    private float blindDelta = 0f;
-    private float speedBoostDelta = 0f;
+        // Extra variables for some effects
+        [HideInInspector] public int dashDistance = 10;
+        [HideInInspector] public float dashSpeed = 50f;
+        [HideInInspector] public float distanceDelta;
+        [HideInInspector] public Vector3 positionDelta;
+        [HideInInspector] public int burnTickCounter;
+        [HideInInspector] public int burnTickMax;
+        [HideInInspector] public float burnTickDamage;
 
-    // Extra variables for some effects
-    public int burnTickCounter = 0;
-    public int burnTickMax = 3;
+        private MageStats player;
 
-    // Burn effect members
-    public void StartBurn() {
-        burning = true;
-    }
-
-    public void StopBurn() {
-        burning = false;
-        burnDelta = 0f;
-        burnTickCounter = 0;
-    }
-
-    public void processBurn() {
-        burnDelta = burnDelta + Time.deltaTime;
-        if (burnTickCounter < burnTickMax && burnDelta >= 1f) {
-            burnTickCounter = burnTickCounter + 1;
-            burnDelta = 0f;
-            // Apply burn damage code here
+        public void StartBurn()
+        {
+            burnTickCounter = 0;
+            burning = true;
         }
-        else if (burnTickCounter == burnTickMax) StopBurn();
-    }
 
-    // Slow effect members
-    public void StartSlow() {
-        slowed = true;
-        // Slow flag code here
-    }
+        private void StopBurn()
+        {
+            burning = false;
+            burnDelta = 0f;
+            burnTickCounter = 0;
+        }
 
-    public void StopSlow() {
-        slowed = false;
-        slowDelta = 0f;
-        // Slow flag code here
-    }
+        private void ProcessBurn()
+        {
+            burnDelta = burnDelta + Time.deltaTime;
+            if (burnTickCounter < burnTickMax && burnDelta >= 1f)
+            {
+                burnTickCounter = burnTickCounter + 1;
+                burnDelta = 0f;
+                player.YieldDamage(burnTickDamage);
+            }
+            else if (burnTickCounter == burnTickMax) StopBurn();
+        }
 
-    public void processSlow() {
-        slowDelta = slowDelta + Time.deltaTime;
-        if (slowDelta >= slowTimer) StopSlow();
-    }
+        // Slow effect members
+        public void StartSlow()
+        {
+            slowed = true;
+            // Slow flag code here
+        }
 
-    // Frozen effect members
-    public void StartFrozen() {
-        frozen = true;
-        // Frozen flag code here
-    }
+        private void StopSlow()
+        {
+            slowed = false;
+            slowDelta = 0f;
+            // Slow flag code here
+        }
 
-    public void StopFrozen() {
-        frozen = false;
-        frozenDelta = 0F;
-        // Frozen flag code here
-    }
+        private void ProcessSlow()
+        {
+            slowDelta = slowDelta + Time.deltaTime;
+            if (slowDelta >= slowTimer) StopSlow();
+        }
 
-    public void processFrozen() {
-        frozenDelta = frozenDelta + Time.deltaTime;
-        if (frozenDelta >= frozenTimer) StopFrozen();
-    }
+        // Frozen effect members
+        public void StartFrozen()
+        {
+            frozen = true;
+            // Frozen flag code here
+        }
 
-    // Stun effect members
-    public void StartStun() {
-        frozen = true;
-        // Stun flag code here
-    }
+        private void StopFrozen()
+        {
+            frozen = false;
+            frozenDelta = 0f;
+            // Frozen flag code here
+        }
 
-    public void StopStun() {
-        frozen = false;
-        frozenDelta = 0F;
-        // Stun flag code here
-    }
+        private void ProcessFrozen()
+        {
+            frozenDelta = frozenDelta + Time.deltaTime;
+            if (frozenDelta >= frozenTimer) StopFrozen();
+        }
 
-    public void processStun() {
-        stunDelta = stunDelta + Time.deltaTime;
-        if (stunDelta >= stunTimer) StopStun();
-    }
+        // Stun effect members
+        public void StartStun()
+        {
+            frozen = true;
+            // Stun flag code here
+        }
 
-    // Minor Metal effect members
-    public void StartMinorMetal() {
-        minorMetalProtection = true;
-        // Minor Metal protection flag here
-    }
+        private void StopStun()
+        {
+            frozen = false;
+            frozenDelta = 0f;
+            // Stun flag code here
+        }
 
-    public void StopMinorMetal() {
-        minorMetalProtection = false;
-        minorMetalDelta = 0F;
-        // Minor Metal protection flag here
-    }
+        private void ProcessStun()
+        {
+            stunDelta = stunDelta + Time.deltaTime;
+            if (stunDelta >= stunTimer) StopStun();
+        }
 
-    public void processMinorMetal() {
-        minorMetalDelta = minorMetalDelta + Time.deltaTime;
-        if (minorMetalDelta >= minorMetalTimer) StopMinorMetal();
-    }
+        // Minor Metal effect members
+        public void StartMinorMetal()
+        {
+            minorMetalProtection = true;
+            // Minor Metal protection flag here
+        }
 
-    // Minor Metal effect members
-    public void StartMajorMetal() {
-        majorMetalProtection = true;
-        // Major Metal protection flag here
-    }
+        private void StopMinorMetal()
+        {
+            minorMetalProtection = false;
+            minorMetalDelta = 0f;
+            // Minor Metal protection flag here
+        }
 
-    public void StopMajorMetal() {
-        majorMetalProtection = false;
-        majorMetalDelta = 0F;
-        // Major Metal protection flag here
-    }
+        private void ProcessMinorMetal()
+        {
+            minorMetalDelta = minorMetalDelta + Time.deltaTime;
+            if (minorMetalDelta >= minorMetalTimer) StopMinorMetal();
+        }
 
-    public void processMajorMetal() {
-        majorMetalDelta = majorMetalDelta + Time.deltaTime;
-        if (majorMetalDelta >= majorMetalTimer) StopMajorMetal();
-    }
+        // Major Metal effect members
+        public void StartMajorMetal()
+        {
+            majorMetalProtection = true;
+            // Major Metal protection flag here
+        }
 
-    // Minor Metal effect members
-    public void StartBlind() {
-       blinded = true;
-        // Blind flag here
-    }
+        private void StopMajorMetal()
+        {
+            majorMetalProtection = false;
+            majorMetalDelta = 0f;
+            // Major Metal protection flag here
+        }
 
-    public void StopBlind() {
-        blinded = false;
-        blindDelta = 0F;
-        // Blind flag code here
-    }
+        private void ProcessMajorMetal()
+        {
+            majorMetalDelta = majorMetalDelta + Time.deltaTime;
+            if (majorMetalDelta >= majorMetalTimer) StopMajorMetal();
+        }
 
-    public void processBlind() {
-        blindDelta = blindDelta + Time.deltaTime;
-        if (blindDelta >= blindTimer) StopBlind();
-    }
+        //  Blind effect members
+        public void StartBlind()
+        {
+            blinded = true;
+            GameObject.Find("ScreenBlind").GetComponent<UI_ScreenBlind>().Flash();
+        }
 
-    // Minor Metal effect members
-    public void StartSpeedBoost() {
-        speedBoost = true;
-        // Blind flag here
-    }
+        public void StopBlind()
+        {
+            blinded = false;
+        }
 
-    public void StopSpeedBoost() {
-        speedBoost = false;
-        speedBoostDelta = 0F;
-        // Speed Boost flag code here
-    }
+        //  Dash effect members
+        public void StartDash()
+        {
+            dashing = true;
+            positionDelta = GameObject.Find("Player").GetComponent<Transform>().position;
+        }
 
-    public void processSpeedBoost() {
-        speedBoostDelta = speedBoostDelta + Time.deltaTime;
-        if (speedBoostDelta >= speedBoostTimer) StopSpeedBoost();
-    }
+        private void StopDash()
+        {
+            dashing = false;
+            //dashDelta = 0f;
+        }
 
-    // Updater for the timers
-    void Update () {
-        if (burning) processBurn();
-        if (slowed) processSlow();
-        if (frozen) processFrozen();
-        if (stunned) processStun();
-        if (minorMetalProtection) processMinorMetal();
-        if (majorMetalProtection) processMajorMetal();
-        if (blinded) processBlind();
-        if (speedBoost) processSpeedBoost();
+        private void ProcessDash()
+        {
+            distanceDelta = distanceDelta + Vector3.Distance(GameObject.Find("Player").GetComponent<Transform>().position, positionDelta);
+            positionDelta = GameObject.Find("Player").GetComponent<Transform>().position;
+            if (distanceDelta >= GameObject.Find("Player").GetComponent<Spell_LightStrong>().dashDistance) StopDash();
+        }
+
+        // Speed Boost effect members
+        public void StartSpeedBoost()
+        {
+            speedBoost = true;
+            // Blind flag here
+        }
+
+        private void StopSpeedBoost()
+        {
+            speedBoost = false;
+            speedBoostDelta = 0f;
+            // Speed Boost flag code here
+        }
+
+        private void ProcessSpeedBoost()
+        {
+            speedBoostDelta = speedBoostDelta + Time.deltaTime;
+            if (speedBoostDelta >= speedBoostTimer) StopSpeedBoost();
+        }
+
+        // Updater for the timers
+        void Update()
+        {
+            if (burning) ProcessBurn();
+            if (slowed) ProcessSlow();
+            if (frozen) ProcessFrozen();
+            if (stunned) ProcessStun();
+            if (minorMetalProtection) ProcessMinorMetal();
+            if (majorMetalProtection) ProcessMajorMetal();
+            if (speedBoost) ProcessSpeedBoost();
+        }
+
+        private void FixedUpdate()
+        {
+            if (dashing) ProcessDash();
+        }
+
+        private void Start()
+        {
+            player = GetComponent<MageStats>();
+        }
     }
 }
+

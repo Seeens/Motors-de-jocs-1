@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: 5f40ee4cba60e74478e1fba06ecba77c
+timeCreated: 1512406126
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: _01_-_TransN
+    100002: _02_-_RotN
+    100004: _03_-_XRotN
+    100006: _04_-_ThrowN
+    100008: _05_-_WristN
+    100010: _06_-_HandN
+    100012: _07_-_FingerBaseN
+    100014: _08_-_Index1N
+    100016: _09_-_Index2N
+    100018: _10_-_Index3N
+    100020: _11_-_MiddleN
+    100022: _12_-_Middle1N
+    100024: _13_-_Middle2N
+    100026: _14_-_Middle3N
+    100028: _15_-_RingN
+    100030: _16_-_PinkyN
+    100032: _17_-_Pinky1N
+    100034: _18_-_Pinky2N
+    100036: _19_-_Pinky3N
+    100038: _20_-_Ring1N
+    100040: _21_-_Ring2N
+    100042: _22_-_Ring3N
+    100044: _23_-_Thumb1N
+    100046: _24_-_Thumb2N
+    100048: _25_-_Thumb3N
+    100050: _26_-_SwellN
+    100052: EnvironmentAmbientLight
+    100054: //RootNode
+    100056: Masterhand_Default_VIS_O_OBJ_
+    100058: Masterhand_End_VIS_O_OBJ_
+    400000: _01_-_TransN
+    400002: _02_-_RotN
+    400004: _03_-_XRotN
+    400006: _04_-_ThrowN
+    400008: _05_-_WristN
+    400010: _06_-_HandN
+    400012: _07_-_FingerBaseN
+    400014: _08_-_Index1N
+    400016: _09_-_Index2N
+    400018: _10_-_Index3N
+    400020: _11_-_MiddleN
+    400022: _12_-_Middle1N
+    400024: _13_-_Middle2N
+    400026: _14_-_Middle3N
+    400028: _15_-_RingN
+    400030: _16_-_PinkyN
+    400032: _17_-_Pinky1N
+    400034: _18_-_Pinky2N
+    400036: _19_-_Pinky3N
+    400038: _20_-_Ring1N
+    400040: _21_-_Ring2N
+    400042: _22_-_Ring3N
+    400044: _23_-_Thumb1N
+    400046: _24_-_Thumb2N
+    400048: _25_-_Thumb3N
+    400050: _26_-_SwellN
+    400052: EnvironmentAmbientLight
+    400054: //RootNode
+    400056: Masterhand_Default_VIS_O_OBJ_
+    400058: Masterhand_End_VIS_O_OBJ_
+    4300000: Masterhand_Default_VIS_O_OBJ_
+    4300002: Masterhand_End_VIS_O_OBJ_
+    7400000: Handshake
+    7400002: LoadSpell
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Masterhand_Default_VIS_O_OBJ_
+    13700002: Masterhand_End_VIS_O_OBJ_
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _
+    second: {fileID: 2100000, guid: a65a72430e466fc47a096258a0917989, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Handshake
+      takeName: Take 001
+      firstFrame: 30
+      lastFrame: 42
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LoadSpell
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
