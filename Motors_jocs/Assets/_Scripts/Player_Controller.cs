@@ -171,7 +171,7 @@ public class Player_Controller : MonoBehaviour
         _spell_L.GetComponent<Rigidbody>().velocity = _camera.transform.forward * 50;
 
         /* Destroy the spell after 2 seconds */
-        Destroy(_spell_L, 5.0f);
+        Destroy(_spell_L, 4.0f);
     }
 
     private void CastSpell_R()
@@ -185,7 +185,7 @@ public class Player_Controller : MonoBehaviour
         _spell_R.GetComponent<Rigidbody>().velocity = _camera.transform.forward * 50;
 
         /* Destroy the spell after 2 seconds */
-        Destroy(_spell_R, 5.0f);
+        Destroy(_spell_R, 4.0f);
     }
 
     private void CheckCastStop_L()
@@ -208,6 +208,10 @@ public class Player_Controller : MonoBehaviour
         if (_castTime_R >= castingTime)
         {
             CastSpell_R();
+        }
+        else
+        {
+            Destroy(_spell_R);
         }
         _castTime_R = 0.0f;
     }

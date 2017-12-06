@@ -53,8 +53,8 @@ GameObject:
   - component: {fileID: 33155395643336616}
   - component: {fileID: 136693171702025356}
   - component: {fileID: 23006579404520570}
-  - component: {fileID: 114088036291718524}
-  - component: {fileID: 114046428463889992}
+  - component: {fileID: 114503951898337138}
+  - component: {fileID: 114798151372254766}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2255,44 +2255,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1243686907022270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18de7e559a583324c957c815dbb8269a, type: 3}
+  m_Script: {fileID: 11500000, guid: 972c15acc7e4fc8488dfc8e6a1d2ed8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 5
   smoothing: 2
---- !u!114 &114046428463889992
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1032217256470172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dbc18a091467bd4c877fd38bd38ab02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hurtEffect: {fileID: 114296758848448148}
-  _debugInfo: {fileID: 114387583206582320}
---- !u!114 &114088036291718524
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1032217256470172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d95bb9ae3fd5d6341bbaf37c5e48516a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 8
-  sprintMultiplier: 2
-  jumpSpeed: 12
-  gravity: 20
-  castingTime: 1
-  spellPrefab: {fileID: 1252272612495910, guid: 14b861da29c203d4889a70699a3aba8b,
-    type: 2}
-  _moveDirection: {x: 0, y: -0.39999998, z: 0}
-  spellSpawn: {fileID: 4303667995636560}
 --- !u!114 &114250026132589340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2343,11 +2310,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1257174773885198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a661507c331f6e4ea645ed14ee52979, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cf7f33706b22c245b1b3b5586b6d314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _textureOpacity: 0
-  _player: {fileID: 114046428463889992}
+  _player: {fileID: 114798151372254766}
   _image: {fileID: 114250026132589340}
 --- !u!114 &114387583206582320
 MonoBehaviour:
@@ -2357,7 +2324,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1163873404503990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7313511c2bf520b4684a268ab67a6e1a, type: 3}
+  m_Script: {fileID: 11500000, guid: dffe1f71805c30342a500b46ef5e6ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114455200553559998
@@ -2414,6 +2381,27 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114503951898337138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032217256470172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ea36667f174bb4d9c6add19e8b0eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
+  sprintMultiplier: 2
+  jumpSpeed: 12
+  gravity: 20
+  castingTime: 1
+  spellPrefab: {fileID: 1252272612495910, guid: 14b861da29c203d4889a70699a3aba8b,
+    type: 2}
+  _moveDirection: {x: 0, y: 0, z: 0}
+  spellSpawn_R: {fileID: 4303667995636560}
+  spellSpawn_L: {fileID: 4152203766874488}
 --- !u!114 &114547155752113976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2480,6 +2468,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: '  Spell: '
+--- !u!114 &114798151372254766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032217256470172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af75c952ea5f1524eb8ff781017bb1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hurtEffect: {fileID: 114296758848448148}
+  _debugInfo: {fileID: 114387583206582320}
 --- !u!124 &124273610253110348
 Behaviour:
   m_ObjectHideFlags: 1

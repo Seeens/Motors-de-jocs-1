@@ -21,7 +21,7 @@ public class Spell_LightWeak : MonoBehaviour
             if (colliderCast != this.gameObject && colliderCast.tag == "Player")
             {
                 //hitCollider.collider.GetComponent<EffectWrapper>().StartBlind();
-                hitCollider.collider.GetComponent<DummyHit>().HitLightWeak();
+                //hitCollider.collider.GetComponent<DummyHit>().HitLightWeak();
             }
         }
     }

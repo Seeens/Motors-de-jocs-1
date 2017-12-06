@@ -9,6 +9,8 @@ public class Player_State : MonoBehaviour
     private float _health = 1000.0f;
     private int _damageReduction = 0;
 
+    private GameObject[] _spellTable = new GameObject[4];
+
     private GameObject _mainCamera;
 
     void Start()

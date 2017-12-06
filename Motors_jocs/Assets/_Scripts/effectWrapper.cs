@@ -47,7 +47,7 @@ namespace Spell.EffectWrapper
         [HideInInspector] public int burnTickMax;
         [HideInInspector] public float burnTickDamage;
 
-        private MageStats player;
+        private Player_State _player;
 
         public void StartBurn()
         {
@@ -69,7 +69,7 @@ namespace Spell.EffectWrapper
             {
                 burnTickCounter = burnTickCounter + 1;
                 burnDelta = 0f;
-                player.YieldDamage(burnTickDamage);
+                _player.YieldDamage(burnTickDamage);
             }
             else if (burnTickCounter == burnTickMax) StopBurn();
         }
@@ -178,7 +178,6 @@ namespace Spell.EffectWrapper
         public void StartBlind()
         {
             blinded = true;
-            GameObject.Find("ScreenBlind").GetComponent<UI_ScreenBlind>().Flash();
         }
 
         public void StopBlind()
@@ -245,7 +244,7 @@ namespace Spell.EffectWrapper
 
         private void Start()
         {
-            player = GetComponent<MageStats>();
+            _player = GetComponent<Player_State>();
         }
     }
 }

@@ -10,7 +10,7 @@ public class Spell_FireStrong : MonoBehaviour
 
     private Collider[] hitColliders;
     private Vector3 playerPosition;
-    private MageStats player;
+    private Player_State player;
 
     public void CastFireStrong()
     {
@@ -29,7 +29,7 @@ public class Spell_FireStrong : MonoBehaviour
 
     void Start()
     {
-        player = GetComponent<MageStats>();
+        player = GetComponent<Player_State>();
     }
 
 }

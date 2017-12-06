@@ -20,7 +20,7 @@ public class Spell_LightningWeak : MonoBehaviour
             if (colliderCast != this.gameObject && colliderCast.tag == "Player" || colliderCast.tag == "boss")
             {
                 //hitCollider.collider.GetComponent<EffectWrapper>().StartBlind();
-                hitCollider.collider.GetComponent<DummyHit>().HitLightningWeak();
+                //hitCollider.collider.GetComponent<DummyHit>().HitLightningWeak();
             }
         }
     }

@@ -18,7 +18,7 @@ public class Spell_LightningStrong : MonoBehaviour {
             if (colliderCast != this.gameObject && colliderCast.tag == "Player" || colliderCast.tag == "boss")
             {
                 //hitCollider.collider.GetComponent<EffectWrapper>().StartStun();
-                hitCollider.collider.GetComponent<DummyHit>().HitLightningStrong();
+                //hitCollider.collider.GetComponent<DummyHit>().HitLightningStrong();
             }
         }
     }
