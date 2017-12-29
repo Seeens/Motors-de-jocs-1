@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - FPSController
+  - MainLight
+  - LobbyCamera
+  - UI
+  - LHand
+  - RHand
+  - Projector
   layers:
   - Default
   - TransparentFX
@@ -14,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Map
   - 
   - 
   - 
